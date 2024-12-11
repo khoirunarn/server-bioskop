@@ -27,4 +27,9 @@ class MovieModel extends Model
     {
         return $this->hasMany(CinemaModel::class, 'id_cinema', 'id_cinema');
     }
+
+    public function jadwal()
+    {
+        return $this->hasMany(JadwalModel::class, 'id_movie', 'id_movie');
+    }
 }

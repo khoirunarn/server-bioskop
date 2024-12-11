@@ -23,4 +23,19 @@ class JadwalModel extends Model
         'created_at',
         'updated_at'
     ];
+
+    public function tiket()
+    {
+        return $this->hasMany(TiketModel::class, 'id_jadwal', 'id_jadwal');
+    }
+
+    public function movie()
+    {
+        return $this->belongsTo(MovieModel::class, 'id_movie', 'id_movie');
+    }
+
+    public function cinema()
+    {
+        return $this->belongsTo(CinemaModel::class, 'id_cinema', 'id_cinema');
+    }
 }

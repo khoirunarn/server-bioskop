@@ -23,4 +23,9 @@ class TiketModel extends Model
         'created_at',
         'updated_at'
     ];
+
+    public function jadwal()
+    {
+        return $this->belongsTo(JadwalModel::class, 'id_jadwal', 'id_jadwal');
+    }
 }

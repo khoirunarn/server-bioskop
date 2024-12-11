@@ -28,4 +28,9 @@ class CinemaModel extends Model
     {
         return $this->belongsTo(MovieModel::class, 'id_movie', 'id_movie');
     }
+
+    public function cinema()
+    {
+        return $this->hasMany(JadwalModel::class, 'id_cinema', 'id_cinema');
+    }
 }

@@ -14,6 +14,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('/movie', [App\Http\Controllers\MovieController::class, 'index']);
+Route::post('/movie', [App\Http\Controllers\MovieController::class, 'store']);
+Route::post('/movie/{id}', [App\Http\Controllers\MovieController::class, 'update']);
+Route::delete('/movie/{id}', [App\Http\Controllers\MovieController::class, 'destroy']);
+
+Route::get('/cinema', [App\Http\Controllers\CinemaController::class, 'index']);
+Route::post('/cinema', [App\Http\Controllers\CinemaController::class, 'store']);
+Route::post('/cinema/{id}', [App\Http\Controllers\CinemaController::class, 'update']);
+Route::delete('/cinema/{id}', [App\Http\Controllers\CinemaController::class, 'destroy']);
+
+Route::get('/jadwal', [App\Http\Controllers\JadwalController::class, 'index']);
+Route::post('/jadwal', [App\Http\Controllers\JadwalController::class, 'store']);
+Route::post('/jadwal/{id}', [App\Http\Controllers\JadwalController::class, 'update']);
+Route::delete('/jadwal/{id}', [App\Http\Controllers\JadwalController::class, 'destroy']);
+
+Route::post('/tiket/{id}', [App\Http\Controllers\TiketController::class, 'update']);
+Route::delete('/tiket/{id}', [App\Http\Controllers\TiketController::class, 'destroy']);
