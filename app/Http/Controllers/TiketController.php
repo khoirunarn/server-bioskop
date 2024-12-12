@@ -9,19 +9,29 @@ use Illuminate\Support\Facades\Validator;
 
 class TiketController extends Controller
 {
+    public function index(){
+        $tiket = TiketModel::with('jadwal.cinema')->get();
+
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Data tiket berhasil ditampilkan.',
+            'data' => $tiket,
+        ]);
+    }
+
     public function update(Request $request, string $id)
     {
         $messages = [
             'required' => 'Kolom :attribute tidak boleh kosong.',
             'integer' => 'Kolom :attribute harus berupa angka.',
             'exists' => 'Kolom :attribute tidak valid.',
-            'string' => 'Kolom :attribute harus berupa teks.',
+            'numeric' => 'Kolom :attribute harus berupa angka.',
         ];
 
         $validator = Validator::make($request->all(), [
             'id_jadwal' => 'required|exists:jadwal,id_jadwal',
             'jumlah_tiket' => 'required|integer',
-            'harga' => 'required|string',
+            'harga' => 'required|numeric',
         ], $messages);
 
         if ($validator->fails()) {
@@ -41,17 +51,13 @@ class TiketController extends Controller
             ], 404);
         }
 
-        $request->merge([
-            'waktu_pesan_tiket' => Carbon::now()->setTimezone('Asia/Jakarta')->format('Y-m-d H:i:s'),
-        ]);
-
         $tiket->update($request->all());
 
         return response()->json([
             'status' => 'success',
             'message' => 'Data tiket berhasil diubah.',
             'data' => $tiket,
-        ]);
+        ], 200);
     }
 
     public function destroy(string $id)
@@ -70,6 +76,6 @@ class TiketController extends Controller
         return response()->json([
             'status' => 'success',
             'message' => 'Data tiket berhasil dihapus.',
-        ]);
+        ], 200);
     }
 }

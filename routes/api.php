@@ -29,5 +29,6 @@ Route::post('/jadwal', [App\Http\Controllers\JadwalController::class, 'store']);
 Route::post('/jadwal/{id}', [App\Http\Controllers\JadwalController::class, 'update']);
 Route::delete('/jadwal/{id}', [App\Http\Controllers\JadwalController::class, 'destroy']);
 
+Route::get('/tiket', [App\Http\Controllers\TiketController::class, 'index']);
 Route::post('/tiket/{id}', [App\Http\Controllers\TiketController::class, 'update']);
 Route::delete('/tiket/{id}', [App\Http\Controllers\TiketController::class, 'destroy']);

@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
             MovieSeeder::class,
             CinemaSeeder::class,
             JadwalSeeder::class,
+            TiketSeeder::class,
         ]);
     }
 }

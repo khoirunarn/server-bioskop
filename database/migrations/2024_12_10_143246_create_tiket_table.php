@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id('id_tiket');
             $table->foreignId('id_jadwal')->constrained('jadwal', 'id_jadwal')->cascadeOnUpdate()->cascadeOnDelete();
             $table->integer('jumlah_tiket');
-            $table->string('harga');
+            $table->double('harga');
             $table->dateTime('waktu_pesan_tiket');
             $table->timestamps();
         });
