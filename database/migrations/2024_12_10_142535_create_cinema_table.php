@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('id_movie')->constrained('movie', 'id_movie')->cascadeOnUpdate()->cascadeOnDelete();
             $table->string('nama_cinema');
             $table->string('address');
-            $table->string('harga');
+            $table->double('harga');
             $table->timestamps();
         });
     }

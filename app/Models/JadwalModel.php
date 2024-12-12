@@ -15,8 +15,8 @@ class JadwalModel extends Model
     protected $fillable = [
         'id_movie',
         'id_cinema',
-        'jumlah_tiket',
-        'harga'
+        'waktu_tayang',
+        'seats'
     ];
 
     protected $hidden = [

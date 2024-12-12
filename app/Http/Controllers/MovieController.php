@@ -22,14 +22,16 @@ class MovieController extends Controller
     public function store(Request $request)
     {
         $messages = [
-            'required' => 'Kolom :attribute harus diisi'
+            'required' => 'Kolom :attribute harus diisi',
+            'integer' => 'Kolom :attribute harus berupa angka',
+            'numeric' => 'Kolom :attribute harus berupa angka'
         ];
 
         $validator = Validator::make($request->all(), [
             'genre' => 'required',
             'judul' => 'required',
-            'durasi' => 'required',
-            'rating' => 'required'
+            'durasi' => 'required|integer',
+            'rating' => 'required|numeric'
         ], $messages);
 
         if ($validator->fails()) {
@@ -52,14 +54,16 @@ class MovieController extends Controller
     public function update(Request $request, string $id)
     {
         $messages = [
-            'required' => 'Kolom :attribute harus diisi'
+            'required' => 'Kolom :attribute harus diisi',
+            'integer' => 'Kolom :attribute harus berupa angka',
+            'numeric' => 'Kolom :attribute harus berupa angka'
         ];
-        
+
         $validator = Validator::make($request->all(), [
             'genre' => 'required',
             'judul' => 'required',
-            'durasi' => 'required',
-            'rating' => 'required'
+            'durasi' => 'required|integer',
+            'rating' => 'required|numeric'
         ], $messages);
 
         if ($validator->fails()) {

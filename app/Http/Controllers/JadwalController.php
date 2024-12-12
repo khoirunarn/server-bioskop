@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\JadwalModel;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -24,7 +25,7 @@ class JadwalController extends Controller
         $messages = [
             'required' => 'Kolom :attribute harus diisi',
             'exists' => 'Data :attribute tidak ditemukan',
-            'integer' => 'Kolom :attribute harus berupa angka'
+            'integer' => 'Kolom :attribute harus berupa angka',
         ];
 
         $validator = Validator::make($request->all(), [
@@ -55,7 +56,7 @@ class JadwalController extends Controller
         $messages = [
             'required' => 'Kolom :attribute harus diisi',
             'exists' => 'Data :attribute tidak ditemukan',
-            'integer' => 'Kolom :attribute harus berupa angka'
+            'integer' => 'Kolom :attribute harus berupa angka',
         ];
 
         $validator = Validator::make($request->all(), [

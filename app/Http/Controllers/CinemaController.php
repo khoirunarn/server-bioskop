@@ -10,7 +10,7 @@ class CinemaController extends Controller
 {
     public function index()
     {
-        $datas = CinemaModel::with('movies')->get();
+        $datas = CinemaModel::with('movie')->get();
 
         return response()->json([
             'status_code' => 200,
@@ -23,14 +23,15 @@ class CinemaController extends Controller
     {
         $messages = [
             'required' => 'Kolom :attribute harus diisi',
-            'exists' => 'Id Movie tidak ditemukan'
+            'exists' => 'Id Movie tidak ditemukan',
+            'numeric' => 'Kolom :attribute harus berupa angka'
         ];
 
         $validator = Validator::make($request->all(), [
             'id_movie' => 'required|exists:movie,id_movie',
             'nama_cinema' => 'required',
             'address' => 'required',
-            'harga' => 'required'
+            'harga' => 'required|numeric'
         ], $messages);
 
         if ($validator->fails()) {

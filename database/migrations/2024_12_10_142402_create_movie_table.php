@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id('id_movie');
             $table->string('judul');
             $table->string('genre');
-            $table->string('durasi');
-            $table->string('rating');
+            $table->integer('durasi');
+            $table->double('rating');
             $table->timestamps();
         });
     }
